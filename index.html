@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажёр гармони | Вертикальные ряды</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-music"></i> Тренажёр гармони</h1>
+            <p class="subtitle">Два вертикальных ряда со смещением по высоте</p>
+        </header>
+
+        <main>
+    <div class="game-area">
+        <!-- ЛЕВАЯ КОЛОНКА: Задание + Статистика -->
+        <div class="left-column">
+            <!-- Задание -->
+            <div class="task-card">
+                <h2><i class="fas fa-bullseye"></i> Задание:</h2>
+                <div class="note-display" id="targetNote">C4</div>
+                <p class="hint">Нажми нужную клавишу на схеме ниже</p>
+            </div>
+
+            <!-- Статистика -->
+            <div class="stats-card">
+                <h2><i class="fas fa-chart-line"></i> Статистика</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">Правильно:</span>
+                        <span class="stat-value" id="correctCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Неправильно:</span>
+                        <span class="stat-value" id="wrongCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Точность:</span>
+                        <span class="stat-value" id="accuracy">0%</span>
+                    </div>
+                </div>
+                <button id="resetStats" class="btn"><i class="fas fa-redo"></i> Сбросить</button>
+            </div>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА: Гармошка + Инфо -->
+        <div class="right-column">
+            <!-- Гармошка -->
+            <div class="accordion-vertical">
+                <h3><i class="fas fa-keyboard"></i> Правая клавиатура (2 вертикальных ряда)</h3>
+                
+                <div class="controls">
+                    <button id="toggleNames" class="btn"><i class="fas fa-eye"></i> Скрыть названия</button>
+                </div>
+
+                <!-- Вертикальные столбцы -->
+                <div class="vertical-columns">
+                    <!-- Левый столбец (нижний) -->
+                    <div class="column column-left" id="columnLeft">
+                        <div class="column-label">Левый ряд</div>
+                    </div>
+                    
+                    <!-- Правый столбец (верхний) -->
+                    <div class="column column-right" id="columnRight">
+                        <div class="column-label">Правый ряд</div>
+                    </div>
+                </div>
+
+                <div class="octave-labels">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+		    <span>4</span>	
+                </div>
+            </div>
+
+            <!-- Инструкция -->
+            <div class="info-card">
+                <h2><i class="fas fa-info-circle"></i> Инструкция по звукам</h2>
+                <ol>
+                    <li>Запиши каждую клавишу гармошки.</li>
+                    <li>Назови файлы: <code>c4.wav</code>, <code>d4.wav</code> и т.д.</li>
+                    <li>Положи в папку <strong>/sounds/</strong> рядом с index.html.</li>
+                    <li>Обнови страницу.</li>
+                </ol>
+                <p class="current-sound">Статус: <span id="currentSound">Загрузка...</span></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+        <footer>
+            <p>Тренажёр гармони | Space — новая нота | Ctrl+H — скрыть названия</p>
+        </footer>
+    </div>
+
+    <div id="audioContainer"></div>
+    <script src="script.js"></script>
+</body>
+</html>
